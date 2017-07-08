@@ -34,8 +34,23 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 /*
 .matches('<yourIntent>')... See details at http://docs.botframework.com/builder/node/guides/understanding-natural-language/
 */
+.matches('greetings', [ //add intents
+    function (session, arg, next) {
+        
+        session.send("HI !! HOW CAN I HELP YOU ? :)");
+    }
+])
+
+.matches('botdetails', [ //add itents
+    function (session, arg, next) {
+        
+        session.send("Imam created me on 7th July");
+    }
+])
+
+
 .onDefault((session) => {
-    session.send('Sorry, I did not understand \'%s\'.', session.message.text);
+    session.send('Sorry, I did not understand the word \'%s\'.', session.message.text);
 });
 
 bot.dialog('/', intents);    
