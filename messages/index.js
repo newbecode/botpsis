@@ -41,10 +41,17 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
     }
 ])
 
-.matches('botdetails', [ //add itents
+.matches('botdetails', [ //add intents
     function (session, arg, next) {
         
         session.send("Imam created me on 7th July");
+    }
+])
+
+.matches('endconversation', [ //add intents
+    function (session, arg, next) {
+        
+        session.send("Okay it is nice to meet you, ask again if there's other question ");
     }
 ])
 
