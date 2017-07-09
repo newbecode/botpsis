@@ -37,14 +37,14 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 .matches('greetings', [ //add intents
     function (session, arg, next) {
         
-        session.send("HI !! HOW CAN I HELP YOU ? :)");
+        session.send("Hi human, how can I help you ?");
     }
 ])
 
 .matches('botdetails', [ //add intents
     function (session, arg, next) {
         
-        session.send("Imam created me on 7th July");
+        session.send("My name is Cyclops, human. I am the PSIS chatbot aka (Super). What is your name human ?");
     }
 ])
 
@@ -55,6 +55,55 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
     }
 ])
 
+.matches('reality', [ //add intents
+    function (session, arg, next) {
+        
+        session.send("I am the real deal human, as good as they come. Are you real human ? ");
+        session.send("I am the super bot human. Dont need for you to ask. ");
+    }
+])
+
+.matches('botage', [ //add intents
+    function (session, arg, next) {
+        
+        session.send("Age has no meaning to me because I am virtual, I was created in July 2017, but I am probably already smarter than you human. ");
+    }
+])
+
+.matches('botlocation', [ //add intents
+    function (session, arg, next) {
+        
+        session.send("Hm.. I am not sure I am alive, I cant tell where I live, maybe inside your browser ? Make a guess . ");
+    }
+])
+
+.matches('botstate', [ //add intents
+    function (session, arg, next) {
+        
+        session.send("I am already fine as I am created, thanks for asking. ");
+    }
+])
+
+.matches('bothobby', [ //add intents
+    function (session, arg, next) {
+        
+        session.send("I do like to waste my time just like you human. I do Dota 2 at my free time. So dont disturb me ..  ");
+    }
+])
+
+.matches('botappearance', [ //add intents
+    function (session, arg, next) {
+        
+        session.send("You dont have to see me to know that I am real human. As I can say I am the most pretty bot you have ever been talked to. ");
+    }
+])
+
+.matches('bottime', [ //add intents NEED TO EDIT TO FOR DATETIMEV2
+    function (session, arg, next) {
+        
+        session.send("date and time ");
+    }
+])
 
 .onDefault((session) => {
     session.send('Sorry, I did not understand the word \'%s\'.', session.message.text);
