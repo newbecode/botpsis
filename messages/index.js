@@ -34,18 +34,6 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 /*
 .matches('<yourIntent>')... See details at http://docs.botframework.com/builder/node/guides/understanding-natural-language/
 */
-.UniversalBot('/',[
-    function (session) {
-        builder.Prompts.text(session, 'Hello , what is your name?')
-    },
-    function(session, args, next){
-        session.send('Hello '+ args.response+ ', nice to meet you '  ); //Waterfall
-        
-    }
-
-])
-
-
 .matches('greetings', [ //add intents
     function (session, arg, next) {
         
@@ -56,7 +44,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 .matches('botdetails', [ //add intents
     function (session, arg, next) {
         
-        session.send("My name is Cyclops, human. I am the PSIS chatbot aka (Super). What is your name human ?");
+        session.send("My name is Cyclops, human. I am the PSIS Enquiry chatbot. What is your name human ?");
     }
 ])
 
@@ -70,7 +58,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 .matches('reality', [ //add intents
     function (session, arg, next) {
         
-        session.send("I am the real deal human, as good as they come. Are you real human ? "); //edit sbb klua 2 jawapan
+        session.send("I am the real deal, as good as they come. Are you real human ? ");
         session.send("I am the super bot human. Dont need for you to ask. ");
     }
 ])
