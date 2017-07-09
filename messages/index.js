@@ -31,9 +31,23 @@ const LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v1/application?id=' +
 // Main dialog with LUIS
 var recognizer = new builder.LuisRecognizer(LuisModelUrl);
 var intents = new builder.IntentDialog({ recognizers: [recognizer] })
+
+
+
 /*
 .matches('<yourIntent>')... See details at http://docs.botframework.com/builder/node/guides/understanding-natural-language/
 */
+
+//Waterfall + Dialog Test
+bot.dialog('/',[
+    function (session) {
+        builder.Prompts.text(session, 'Hello , what is your name?')
+    },
+    function(session, args, next){
+        session.send('Hello '+ args.response+ ', nice to meet you '  ); //Waterfall
+    }
+])
+
 .matches('greetings', [ //add intents
     function (session, arg, next) {
         
@@ -58,7 +72,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 .matches('reality', [ //add intents
     function (session, arg, next) {
         
-        session.send("I am the real deal human, as good as they come. Are you real human ? ");
+        session.send("I am the real deal human, as good as they come. Are you real human ? "); //edit sbb klua 2 jawapan
         session.send("I am the super bot human. Dont need for you to ask. ");
     }
 ])
